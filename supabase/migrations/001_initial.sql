@@ -34,7 +34,11 @@ alter table audit_logs enable row level security;
 alter table integrations enable row level security;
 alter table integration_events enable row level security;
 
-create policy household_member_access on households using (is_household_member(id));
+create policy household_member_access on households for select using (is_household_member(id) or owner_id = auth.uid());
+create policy household_owner_insert on households for insert with check (auth.uid() is not null and owner_id = auth.uid());
+create policy household_member_update on households for update using (is_household_member(id) or owner_id = auth.uid()) with check (is_household_member(id) or owner_id = auth.uid());
+create policy household_member_delete on households for delete using (is_household_member(id) or owner_id = auth.uid());
+
 create policy household_members_scope on household_members using (is_household_member(household_id));
 create policy devices_scope on devices using (is_household_member(household_id));
 create policy camera_streams_scope on camera_streams using (exists (select 1 from devices d where d.id=device_id and is_household_member(d.household_id)));
@@ -45,7 +49,3 @@ create policy ai_summaries_scope on ai_summaries using (is_household_member(hous
 create policy audit_logs_scope on audit_logs using (is_household_member(household_id));
 create policy integrations_scope on integrations using (is_household_member(household_id));
 create policy integration_events_scope on integration_events using (is_household_member(household_id));
-alter table households enable row level security; alter table devices enable row level security; alter table security_events enable row level security;
-create policy household_member_access on households using (exists (select 1 from household_members hm where hm.household_id=households.id and hm.user_id=auth.uid()));
-create policy device_household_access on devices using (exists (select 1 from household_members hm where hm.household_id=devices.household_id and hm.user_id=auth.uid()));
-create policy event_household_access on security_events using (exists (select 1 from household_members hm where hm.household_id=security_events.household_id and hm.user_id=auth.uid()));
