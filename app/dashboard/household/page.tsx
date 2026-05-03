@@ -1,0 +1,2 @@
+import { PageShell } from '@/components/layout/page-shell';
+export default function Page(){return <PageShell title='Household'><div className='glass p-4'>Mock UI for Household.</div></PageShell>}
