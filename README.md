@@ -47,3 +47,19 @@ See `.env.example` for all required keys:
 - Processing flow is orchestrated by `lib/integrations/manager.ts`, which also writes audit entries.
 - Integration UI management is available at `/dashboard/integrations`.
 - See `lib/integrations/IMPLEMENTATION_GUIDE.md` for production implementation guidance.
+Premium SaaS security command center by **Nessalk Industries**.
+
+## Setup
+1. `npm install`
+2. `cp .env.example .env.local`
+3. `npm run dev`
+
+## Features
+- Next.js App Router + TypeScript + Tailwind
+- Mock-first dashboard across landing, pricing, auth, onboarding, dashboard and admin
+- Supabase schema migration + RLS policies
+- Stripe and AI placeholders
+- Integration provider architecture for Home Assistant, MQTT, ONVIF, RTSP, Webhooks
+
+## Disclaimer
+Prudentia Security provides informational insights and automations. It does not replace emergency services or professional alarm monitoring.
