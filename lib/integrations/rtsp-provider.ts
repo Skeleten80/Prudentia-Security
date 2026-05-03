@@ -1,0 +1,1 @@
+export const rtspProvider={provider:'rtsp',notes:'RTSP registration placeholder'};

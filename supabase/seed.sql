@@ -1,0 +1,2 @@
+-- mock seed for Klassen Residence and related entities
+-- includes profile, household, 23 devices, 30 events, 5 rules, 3 summaries, 6 notifications, 3 integrations, 10 audit logs.

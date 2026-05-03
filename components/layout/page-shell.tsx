@@ -1,0 +1,2 @@
+import { Nav } from './nav';import { ReactNode } from 'react';
+export function PageShell({title,children}:{title:string,children:ReactNode}){return <main className='p-4 md:p-8 space-y-4'><div><h1 className='text-2xl font-semibold'>{title}</h1><p className='text-white/70'>Prudentia Security by Nessalk Industries</p></div><Nav/>{children}<p className='text-xs text-white/60'>Prudentia Security provides informational insights only and does not replace police, fire, emergency services, or professional alarm monitoring.</p></main>}

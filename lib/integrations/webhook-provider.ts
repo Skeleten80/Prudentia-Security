@@ -1,0 +1,1 @@
+export const webhookProvider={provider:'webhook',notes:'Webhook ingestion placeholder'};
