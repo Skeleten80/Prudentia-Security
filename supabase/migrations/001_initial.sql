@@ -45,3 +45,7 @@ create policy ai_summaries_scope on ai_summaries using (is_household_member(hous
 create policy audit_logs_scope on audit_logs using (is_household_member(household_id));
 create policy integrations_scope on integrations using (is_household_member(household_id));
 create policy integration_events_scope on integration_events using (is_household_member(household_id));
+alter table households enable row level security; alter table devices enable row level security; alter table security_events enable row level security;
+create policy household_member_access on households using (exists (select 1 from household_members hm where hm.household_id=households.id and hm.user_id=auth.uid()));
+create policy device_household_access on devices using (exists (select 1 from household_members hm where hm.household_id=devices.household_id and hm.user_id=auth.uid()));
+create policy event_household_access on security_events using (exists (select 1 from household_members hm where hm.household_id=security_events.household_id and hm.user_id=auth.uid()));

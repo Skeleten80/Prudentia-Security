@@ -39,3 +39,19 @@ See `.env.example` for all required keys:
 - RLS policies limit `households`, `devices`, and `security_events` to members of each household.
 - Credential-bearing fields are modeled as encrypted placeholders and are not displayed post-save.
 - Product messaging avoids guarantees and clearly states it is not emergency monitoring.
+Premium SaaS security command center by **Nessalk Industries**.
+
+## Setup
+1. `npm install`
+2. `cp .env.example .env.local`
+3. `npm run dev`
+
+## Features
+- Next.js App Router + TypeScript + Tailwind
+- Mock-first dashboard across landing, pricing, auth, onboarding, dashboard and admin
+- Supabase schema migration + RLS policies
+- Stripe and AI placeholders
+- Integration provider architecture for Home Assistant, MQTT, ONVIF, RTSP, Webhooks
+
+## Disclaimer
+Prudentia Security provides informational insights and automations. It does not replace emergency services or professional alarm monitoring.
