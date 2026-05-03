@@ -1,0 +1,1 @@
+export const onvifProvider={provider:'onvif',notes:'ONVIF discovery placeholder'};
