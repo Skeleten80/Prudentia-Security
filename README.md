@@ -39,6 +39,14 @@ See `.env.example` for all required keys:
 - RLS policies limit `households`, `devices`, and `security_events` to members of each household.
 - Credential-bearing fields are modeled as encrypted placeholders and are not displayed post-save.
 - Product messaging avoids guarantees and clearly states it is not emergency monitoring.
+
+## Integration Architecture
+- Providers are defined with typed contracts in `lib/integrations/types.ts`.
+- Built-in providers: Home Assistant, MQTT, ONVIF, RTSP, Webhook (`lib/integrations/providers.ts`).
+- Integration events are normalized and mapped into `security_events` by `lib/integrations/security-event-mapper.ts`.
+- Processing flow is orchestrated by `lib/integrations/manager.ts`, which also writes audit entries.
+- Integration UI management is available at `/dashboard/integrations`.
+- See `lib/integrations/IMPLEMENTATION_GUIDE.md` for production implementation guidance.
 Premium SaaS security command center by **Nessalk Industries**.
 
 ## Setup
