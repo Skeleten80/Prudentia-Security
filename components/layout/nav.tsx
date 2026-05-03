@@ -1,0 +1,3 @@
+import Link from 'next/link';
+const links=[['/dashboard','Dashboard'],['/dashboard/cameras','Cameras'],['/dashboard/events','Events'],['/dashboard/devices','Devices'],['/dashboard/automations','Automations'],['/dashboard/ai-assistant','AI'],['/dashboard/integrations','Integrations'],['/dashboard/notifications','Notifications'],['/dashboard/household','Household'],['/dashboard/billing','Billing'],['/dashboard/settings','Settings'],['/admin','Admin']];
+export function Nav(){return <nav className='glass p-3 flex flex-wrap gap-2'>{links.map(([href,label])=><Link className='px-3 py-1 rounded bg-white/5 hover:bg-accent/30' key={href} href={href}>{label}</Link>)}</nav>}
