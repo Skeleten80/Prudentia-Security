@@ -1,7 +1,6 @@
 import { SecurityEventInsert } from '@/lib/integrations/types';
 
 export async function insertSecurityEvent(event: SecurityEventInsert) {
-  // Placeholder for Supabase insert. Keep safe for local mock mode.
   return event;
 }
 
