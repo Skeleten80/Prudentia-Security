@@ -1,5 +1,1 @@
-import { PageShell } from '@/components/layout/page-shell';
-import { EmptyState } from '@/components/ui/state';
-export default function Page(){return <PageShell title='Billing'><EmptyState title='Billing module ready' message='This mock-first view is prepared for Supabase-backed data and integration events.'/></PageShell>}
-export default function Page(){return <PageShell title='Billing'><EmptyState title='Billing module ready' message='This mock-first view is prepared for Supabase-backed data and integration events.'/></PageShell>}
-export default function Page(){return <PageShell title='Billing'><div className='glass p-4'>Mock UI for Billing.</div></PageShell>}
+import { GlassCard } from '@/components/ui/glass-card';import { getStripePlaceholderSession } from '@/lib/stripe/placeholders';export default function BillingPage(){const session=getStripePlaceholderSession();return <GlassCard className='p-6'><h1 className='text-xl mb-4'>Billing</h1><p className='text-white/75'>Stripe integration placeholder for subscriptions and invoices.</p><pre className='mt-4 text-xs bg-black/30 rounded-lg p-3 overflow-auto'>{JSON.stringify(session,null,2)}</pre></GlassCard>}

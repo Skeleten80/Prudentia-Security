@@ -1,5 +1,3 @@
-import { PageShell } from '@/components/layout/page-shell';
-import { DashboardOverview } from '@/components/dashboard/overview';
-
-export default function Page(){return <PageShell title='Security Command Center'><DashboardOverview/></PageShell>}
-export default function Page(){return <PageShell title='Dashboard'><div className='glass p-4'>Mock UI for Dashboard.</div></PageShell>}
+import { GlassCard } from '@/components/ui/glass-card';
+import { cameraFeeds, dashboardSummary, events } from '@/lib/mock-data';
+export default function DashboardPage(){return <><GlassCard className='p-6 grid md:grid-cols-5 gap-4'>{[['Protection Score',`${dashboardSummary.score}%`],['Mode',dashboardSummary.mode],['Cameras',dashboardSummary.camerasOnline],['Sensors',dashboardSummary.sensorsOnline],['Alerts',`${dashboardSummary.alerts}`]].map(([l,v])=><div key={l}><p className='text-xs text-white/70'>{l}</p><p className='text-lg font-semibold mt-1'>{v}</p></div>)}</GlassCard><section className='grid xl:grid-cols-2 gap-6'><GlassCard className='p-6'><h2 className='font-semibold mb-4'>Camera Grid</h2><div className='grid sm:grid-cols-2 gap-3'>{cameraFeeds.map(c=><div key={c.id} className='rounded-xl bg-black/30 border border-white/10 p-3'><p>{c.name}</p><p className='text-sm text-white/70'>{c.location} • {c.status}</p><p className='text-xs text-white/60 mt-2'>Last motion: {c.lastMotion}</p></div>)}</div></GlassCard><GlassCard className='p-6'><h2 className='font-semibold mb-4'>Event Timeline</h2><div className='space-y-3'>{events.map(e=><div key={e.id} className='p-3 rounded-lg bg-white/5'><p className='text-sm'>{e.title} · {e.source}</p><p className='text-xs text-white/70'>{e.time} · {e.details}</p></div>)}</div></GlassCard></section></>}
