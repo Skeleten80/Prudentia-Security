@@ -1,1 +1,6 @@
-import { GlassCard } from '@/components/ui/glass-card';import { events } from '@/lib/mock-data';export default function EventsPage(){return <GlassCard className='p-6'><h1 className='text-xl mb-4'>Security Events</h1><div className='space-y-3'>{events.map(e=><div key={e.id} className='p-3 rounded-lg bg-white/5'><p>{e.title} <span className='text-xs text-white/70'>({e.severity})</span></p><p className='text-sm text-white/70'>{e.source} · {e.time}</p><p className='text-xs text-white/60'>{e.details}</p></div>)}</div></GlassCard>}
+import { Header } from '@/components/layout/header';
+import { RecentEvents } from '@/components/events/recent-events';
+
+export default function EventsPage() {
+  return <><Header title='Events' subtitle='Timeline of recent detections and alerts' /><RecentEvents /></>;
+}
