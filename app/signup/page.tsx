@@ -1,2 +1,1 @@
-import { PageShell } from '@/components/layout/page-shell';
-export default function Page(){return <PageShell title='Signup'><div className='glass p-4'>Mock UI for Signup.</div></PageShell>}
+export default function SignupPage(){return <main className='p-8 max-w-xl mx-auto'><h1 className='text-3xl font-bold'>Start Free</h1><p className='text-white/70 mt-2'>Signup flow placeholder for Prudentia Security.</p></main>}

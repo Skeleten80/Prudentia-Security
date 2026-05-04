@@ -1,5 +1,1 @@
-import { PageShell } from '@/components/layout/page-shell';
-import { EmptyState } from '@/components/ui/state';
-export default function Page(){return <PageShell title='Devices'><EmptyState title='Devices module ready' message='This mock-first view is prepared for Supabase-backed data and integration events.'/></PageShell>}
-export default function Page(){return <PageShell title='Devices'><EmptyState title='Devices module ready' message='This mock-first view is prepared for Supabase-backed data and integration events.'/></PageShell>}
-export default function Page(){return <PageShell title='Devices'><div className='glass p-4'>Mock UI for Devices.</div></PageShell>}
+import { GlassCard } from '@/components/ui/glass-card';import { devices } from '@/lib/mock-data';export default function DevicesPage(){return <GlassCard className='p-6'><h1 className='text-xl mb-4'>Device Inventory</h1><div className='grid md:grid-cols-2 gap-3'>{devices.map(d=><div key={d.id} className='rounded-lg p-3 bg-white/5'><p>{d.name}</p><p className='text-sm text-white/70'>{d.type} · {d.zone}</p><p className='text-xs text-white/60'>Battery {d.battery} · {d.health}</p></div>)}</div></GlassCard>}

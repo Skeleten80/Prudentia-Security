@@ -2,7 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-body{@apply bg-background text-white antialiased; background-image: radial-gradient(circle at 20% 20%, rgba(47,123,255,.12), transparent 35%), radial-gradient(circle at 80% 0%, rgba(21,184,106,.08), transparent 30%);} 
-.glass{@apply bg-panel/80 backdrop-blur border border-white/10 rounded-xl shadow-xl shadow-black/20;}
-@tailwind base;@tailwind components;@tailwind utilities;
-body{@apply bg-background text-white;} .glass{@apply bg-panel/80 backdrop-blur border border-white/10 rounded-xl;}
+body {
+  @apply bg-background text-white antialiased;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(47, 123, 255, .12), transparent 35%),
+    radial-gradient(circle at 80% 0%, rgba(21, 184, 106, .08), transparent 30%);
+}
+
+.glass {
+  @apply bg-panel/80 backdrop-blur border border-white/10 rounded-xl shadow-xl shadow-black/20;
+}

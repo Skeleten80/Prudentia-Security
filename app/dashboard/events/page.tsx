@@ -1,5 +1,1 @@
-import { PageShell } from '@/components/layout/page-shell';
-import { EmptyState } from '@/components/ui/state';
-export default function Page(){return <PageShell title='Events Timeline'><EmptyState title='Events Timeline module ready' message='This mock-first view is prepared for Supabase-backed data and integration events.'/></PageShell>}
-export default function Page(){return <PageShell title='Events Timeline'><EmptyState title='Events Timeline module ready' message='This mock-first view is prepared for Supabase-backed data and integration events.'/></PageShell>}
-export default function Page(){return <PageShell title='Events'><div className='glass p-4'>Mock UI for Events.</div></PageShell>}
+import { GlassCard } from '@/components/ui/glass-card';import { events } from '@/lib/mock-data';export default function EventsPage(){return <GlassCard className='p-6'><h1 className='text-xl mb-4'>Security Events</h1><div className='space-y-3'>{events.map(e=><div key={e.id} className='p-3 rounded-lg bg-white/5'><p>{e.title} <span className='text-xs text-white/70'>({e.severity})</span></p><p className='text-sm text-white/70'>{e.source} · {e.time}</p><p className='text-xs text-white/60'>{e.details}</p></div>)}</div></GlassCard>}

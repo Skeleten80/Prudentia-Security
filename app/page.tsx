@@ -1,2 +1,14 @@
-import Link from 'next/link';import { plans } from '@/lib/mock-data';
-export default function Page(){return <main className='p-8 space-y-8'><section className='glass p-8'><p className='text-accent'>Prudentia Security by Nessalk Industries</p><h1 className='text-4xl font-bold'>Intelligent home security, unified in one command center.</h1><p className='text-white/75 mt-3'>Prudentia Security helps homeowners monitor cameras, sensors, locks, alerts, automations, and AI-powered summaries from one premium dashboard.</p><div className='mt-6 flex gap-3'><Link href='/signup' className='px-4 py-2 rounded bg-accent'>Start Free</Link><Link href='/dashboard' className='px-4 py-2 rounded bg-white/10'>View Demo</Link></div></section><section className='grid md:grid-cols-4 gap-4'>{['Unified security dashboard','Camera and sensor monitoring','AI security summaries','Smart alerts','Device health monitoring','Home security automations','Property monitoring','Household access control'].map(f=><div className='glass p-4' key={f}>{f}</div>)}</section><section className='glass p-6'><h2 className='text-xl mb-3'>Pricing</h2><div className='grid md:grid-cols-5 gap-3'>{plans.map(p=><div className='bg-white/5 rounded p-3' key={p[0]}><div>{p[0]}</div><div className='text-2xl'>{p[1]}</div></div>)}</div></section></main>}
+import { LandingHero } from '@/components/marketing/landing-hero';
+import { GlassCard } from '@/components/ui/glass-card';
+import { marketingFeatures, plans } from '@/lib/mock-data';
+
+export default function Page() {
+  return <main className='p-8 space-y-8 max-w-7xl mx-auto'>
+    <LandingHero />
+    <section className='grid md:grid-cols-4 gap-4'>{marketingFeatures.map((f) => <GlassCard className='p-4' key={f}>{f}</GlassCard>)}</section>
+    <GlassCard className='p-6'>
+      <h2 className='text-xl mb-3'>Pricing</h2>
+      <div className='grid md:grid-cols-5 gap-3'>{plans.map((p)=><div className='bg-white/5 rounded-xl p-3' key={p.name}><div>{p.name}</div><div className='text-2xl'>{p.price}</div><p className='text-xs text-white/70 mt-1'>{p.description}</p></div>)}</div>
+    </GlassCard>
+  </main>;
+}

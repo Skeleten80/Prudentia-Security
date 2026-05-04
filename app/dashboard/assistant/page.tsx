@@ -1,0 +1,1 @@
+import { GlassCard } from '@/components/ui/glass-card';export default function AssistantPage(){return <GlassCard className='p-6'><h1 className='text-xl mb-4'>AI Security Assistant</h1><p className='text-white/75'>Placeholder for conversational security summaries and proactive recommendations powered by Supabase data + AI service hooks.</p></GlassCard>}

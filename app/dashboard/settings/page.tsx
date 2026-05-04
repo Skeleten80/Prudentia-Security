@@ -1,5 +1,1 @@
-import { PageShell } from '@/components/layout/page-shell';
-import { EmptyState } from '@/components/ui/state';
-export default function Page(){return <PageShell title='Settings'><EmptyState title='Settings module ready' message='This mock-first view is prepared for Supabase-backed data and integration events.'/></PageShell>}
-export default function Page(){return <PageShell title='Settings'><EmptyState title='Settings module ready' message='This mock-first view is prepared for Supabase-backed data and integration events.'/></PageShell>}
-export default function Page(){return <PageShell title='Settings'><div className='glass p-4'>Mock UI for Settings.</div></PageShell>}
+import { GlassCard } from '@/components/ui/glass-card';import { getSupabaseConfigStatus } from '@/lib/supabase/client';export default function SettingsPage(){const s=getSupabaseConfigStatus();return <GlassCard className='p-6'><h1 className='text-xl mb-4'>Settings</h1><p className='text-white/75'>Workspace, integrations, and notifications settings.</p><div className='mt-4 text-sm bg-white/5 rounded-lg p-3'>Supabase URL configured: {s.hasUrl ? 'Yes' : 'No'}<br/>Supabase anon key configured: {s.hasAnonKey ? 'Yes' : 'No'}</div></GlassCard>}
