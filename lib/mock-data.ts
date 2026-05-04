@@ -46,10 +46,11 @@ export const automations: Automation[] = [
 
 export const dashboardNav: NavItem[] = [
   { label: 'Overview', href: '/dashboard', icon: '⌂' },
+  { label: 'Cameras', href: '/dashboard/cameras', icon: '◉' },
   { label: 'Events', href: '/dashboard/events', icon: '◷' },
   { label: 'Devices', href: '/dashboard/devices', icon: '▦' },
   { label: 'Automations', href: '/dashboard/automations', icon: '⚙' },
-  { label: 'AI Assistant', href: '/dashboard/assistant', icon: '✦' },
+  { label: 'AI Assistant', href: '/dashboard/ai-assistant', icon: '✦' },
   { label: 'Billing', href: '/dashboard/billing', icon: '$' },
   { label: 'Settings', href: '/dashboard/settings', icon: '☰' },
 ];

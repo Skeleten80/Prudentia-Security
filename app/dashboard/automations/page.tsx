@@ -1,1 +1,5 @@
-import { GlassCard } from '@/components/ui/glass-card';import { automations } from '@/lib/mock-data';export default function AutomationsPage(){return <GlassCard className='p-6'><h1 className='text-xl mb-4'>Automations</h1><div className='space-y-3'>{automations.map(a=><div key={a.id} className='rounded-lg p-3 bg-white/5'><p>{a.name}</p><p className='text-sm text-white/70'>{a.trigger} → {a.action}</p><p className='text-xs text-white/60'>{a.enabled?'Enabled':'Disabled'}</p></div>)}</div></GlassCard>}
+import { Header } from '@/components/layout/header';
+import { GlassCard } from '@/components/ui/glass-card';
+import { automations } from '@/lib/mock-data';
+
+export default function AutomationsPage(){return <><Header title='Automations' subtitle='Rules that protect your property automatically' /><GlassCard className='p-6'><div className='space-y-3'>{automations.map(a=><div key={a.id} className='rounded-lg p-3 bg-white/5'><p>{a.name}</p><p className='text-sm text-white/70'>{a.trigger} → {a.action}</p><p className='text-xs text-white/60'>{a.enabled?'Enabled':'Disabled'}</p></div>)}</div></GlassCard></>}
