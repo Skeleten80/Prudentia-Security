@@ -47,4 +47,3 @@ export interface IntegrationProvider {
   ingestEvents?(config: IntegrationConfigBase): AsyncGenerator<IntegrationEvent, void, unknown>;
   discoverDevices?(config: IntegrationConfigBase): Promise<Array<{ name: string; type: string; location?: string }>>;
 }
-export type IntegrationStatus='connected'|'needs_attention'|'not_configured';export interface IntegrationProvider{name:string;checkStatus:()=>Promise<IntegrationStatus>;}
