@@ -1,13 +1,22 @@
 import { PropsWithChildren } from 'react';
+import { cva, type VariantProps } from 'class-variance-authority';
+import { cn } from '@/lib/utils';
 
-type BadgeTone = 'neutral' | 'success' | 'warning' | 'danger';
-const toneClass: Record<BadgeTone, string> = {
-  neutral: 'bg-white/10 text-white/80',
-  success: 'bg-emerald-500/20 text-emerald-200',
-  warning: 'bg-amber-500/20 text-amber-200',
-  danger: 'bg-rose-500/20 text-rose-200',
-};
+const badgeVariants = cva('inline-flex rounded-full px-2 py-0.5 text-xs', {
+  variants: {
+    tone: {
+      neutral: 'bg-white/10 text-white/80',
+      success: 'bg-good/20 text-good',
+      warning: 'bg-warn/20 text-warn',
+      danger: 'bg-bad/20 text-bad',
+      critical: 'bg-bad text-white',
+    },
+  },
+  defaultVariants: { tone: 'neutral' },
+});
 
-export function Badge({ children, tone = 'neutral' }: PropsWithChildren<{ tone?: BadgeTone }>) {
-  return <span className={`inline-flex rounded-full px-2 py-0.5 text-xs ${toneClass[tone]}`}>{children}</span>;
+type BadgeProps = PropsWithChildren<VariantProps<typeof badgeVariants> & { className?: string }>;
+
+export function Badge({ children, tone, className }: BadgeProps) {
+  return <span className={cn(badgeVariants({ tone }), className)}>{children}</span>;
 }

@@ -1,1 +1,0 @@
-export const homeAssistantProvider={provider:'home_assistant',notes:'REST API placeholder'};
