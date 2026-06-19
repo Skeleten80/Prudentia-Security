@@ -37,7 +37,7 @@ export default function SignupPage() {
 
   return <main className='p-8 max-w-xl mx-auto'>
     <h1 className='text-3xl font-bold'>Start Free</h1>
-    <p className='text-white/70 mt-2'>Use secure magic-link authentication powered by Supabase.</p>
+    <p className='text-white/70 mt-2'>Sign in to your Prudentia Shield workspace using a secure magic link powered by Supabase.</p>
     {!config.isConfigured ? (
       <p className='mt-4 rounded border border-amber-500/40 bg-amber-500/10 p-3 text-sm text-amber-100'>
         Supabase variables are not set. The app will continue to use mock dashboard data.

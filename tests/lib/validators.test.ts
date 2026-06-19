@@ -1,9 +1,14 @@
 import { describe, it, expect } from 'vitest';
-import { ruleSchema } from '@/lib/validators';
+import { organizationSettingsSchema } from '@/lib/validators';
 
-describe('rule schema', ()=>{
-  it('accepts valid payload', ()=>{
-    const payload={name:'Night Motion Alert',triggerType:'motion',condition:'after 23:00',timeWindow:'23:00-06:00',action:'critical alert',severity:'High',enabled:true};
-    expect(ruleSchema.safeParse(payload).success).toBe(true);
+describe('organization settings schema', () => {
+  it('accepts a valid payload', () => {
+    const payload = { name: 'Trillium Bookkeeping & Tax Co.', industry: 'Professional Services', city: 'Kitchener', province: 'ON' };
+    expect(organizationSettingsSchema.safeParse(payload).success).toBe(true);
+  });
+
+  it('rejects a missing organization name', () => {
+    const payload = { name: '', industry: 'Professional Services', city: 'Kitchener', province: 'ON' };
+    expect(organizationSettingsSchema.safeParse(payload).success).toBe(false);
   });
 });

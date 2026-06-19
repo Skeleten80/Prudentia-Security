@@ -1,2 +1,10 @@
 import { z } from 'zod';
-export const ruleSchema=z.object({name:z.string().min(2),triggerType:z.string(),deviceId:z.string().optional(),condition:z.string(),timeWindow:z.string(),action:z.string(),severity:z.enum(['Low','Medium','High','Critical']),enabled:z.boolean()});
+
+export const organizationSettingsSchema = z.object({
+  name: z.string().min(2, 'Organization name is required'),
+  industry: z.string().min(2, 'Industry is required'),
+  city: z.string().min(2, 'City is required'),
+  province: z.string().min(2).default('ON'),
+});
+
+export type OrganizationSettingsInput = z.infer<typeof organizationSettingsSchema>;

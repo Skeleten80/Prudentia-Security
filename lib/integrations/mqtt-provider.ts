@@ -1,1 +1,0 @@
-export const mqttProvider={provider:'mqtt',notes:'MQTT ingestion placeholder'};
